@@ -172,7 +172,7 @@
 									"parameters": {
 										"container": "bronzelayer",
 										"folder": {
-											"value": "@pipeline().parameters.table",
+											"value": "@{pipeline().parameters.table}_cdc",
 											"type": "Expression"
 										},
 										"file": "@concat(pipeline().parameters.table,'_',variables('current'))"
