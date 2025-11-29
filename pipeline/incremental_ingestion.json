@@ -68,7 +68,10 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronzelayer",
-							"folder": "users",
+							"folder": {
+								"value": "@pipeline().parameters.table",
+								"type": "Expression"
+							},
 							"file": {
 								"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
 								"type": "Expression"
@@ -148,7 +151,7 @@
 					},
 					"ifFalseActivities": [
 						{
-							"name": "DeleteCdc",
+							"name": "DeleteEmptyFile",
 							"type": "Delete",
 							"dependsOn": [],
 							"policy": {
@@ -291,13 +294,16 @@
 		],
 		"parameters": {
 			"schema": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "dbo"
 			},
 			"table": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "DimUser"
 			},
 			"cdc_col": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "updated_at"
 			}
 		},
 		"variables": {
