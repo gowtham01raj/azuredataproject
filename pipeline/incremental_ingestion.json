@@ -165,7 +165,10 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"container": "bronzelayer",
-										"folder": "users",
+										"folder": {
+											"value": "@pipeline().parameters.table",
+											"type": "Expression"
+										},
 										"file": "@concat(pipeline().parameters.table,'_',variables('current'))"
 									}
 								},
