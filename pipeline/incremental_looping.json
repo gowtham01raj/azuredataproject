@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "ForEach",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -122,7 +122,7 @@
 									"parameters": {
 										"container": "bronzelayer",
 										"folder": {
-											"value": "@{item().table}_cdc",
+											"value": "@{item().table}",
 											"type": "Expression"
 										},
 										"file": "cdc.json"
@@ -261,7 +261,7 @@
 												"parameters": {
 													"container": "bronzelayer",
 													"folder": {
-														"value": "@{item().table}_cdc",
+														"value": "@{item().table}",
 														"type": "Expression"
 													},
 													"file": "empty.json"
@@ -275,7 +275,7 @@
 												"parameters": {
 													"container": "bronzelayer",
 													"folder": {
-														"value": "@{item().table}_cdc",
+														"value": "@{item().table}",
 														"type": "Expression"
 													},
 													"file": "cdc.json"
@@ -323,7 +323,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "ForEach1",
+						"activity": "ForEach",
 						"dependencyConditions": [
 							"Succeeded",
 							"Skipped",
